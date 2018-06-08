@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.quickstart.database.models.Lecture;
 import com.google.firebase.quickstart.database.models.User;
 import com.google.firebase.quickstart.database.models.Comment;
 import com.google.firebase.quickstart.database.models.Post;
@@ -58,9 +59,8 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
 
         // Initialize Database
         mPostReference = FirebaseDatabase.getInstance().getReference()
-                .child("posts").child(mPostKey);
-        mCommentsReference = FirebaseDatabase.getInstance().getReference()
-                .child("post-comments").child(mPostKey);
+                .child("lectures").child(mPostKey);
+
 
         // Initialize Views
         mAuthorView = findViewById(R.id.post_author);
@@ -85,11 +85,10 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // Get Post object and use the values to update the UI
-                Post post = dataSnapshot.getValue(Post.class);
+                Lecture lecture = dataSnapshot.getValue(Lecture.class);
                 // [START_EXCLUDE]
-                mAuthorView.setText(post.author);
-                mTitleView.setText(post.title);
-                mBodyView.setText(post.body);
+                mTitleView.setText(lecture.title);
+                mBodyView.setText(lecture.subtopic1);
                 // [END_EXCLUDE]
             }
 

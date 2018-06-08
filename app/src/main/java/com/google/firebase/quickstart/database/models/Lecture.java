@@ -31,7 +31,7 @@ public class Lecture {
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("titel", title);
+        result.put("title", title);
         result.put("subtopic1", subtopic1);
         result.put("subtopic2", subtopic2);
         result.put("subtopic3", subtopic3);

@@ -9,13 +9,13 @@ public class MyTopPostsFragment extends PostListFragment {
 
     @Override
     public Query getQuery(DatabaseReference databaseReference) {
-        // [START my_top_posts_query]
-        // My top posts by number of stars
-        String myUserId = getUid();
-        Query myTopPostsQuery = databaseReference.child("user-posts").child(myUserId)
-                .orderByChild("starCount");
-        // [END my_top_posts_query]
+        // [START recent_posts_query]
+        // Last 100 posts, these are automatically the 100 most recent
+        // due to sorting by push() keys
+        Query recentPostsQuery = databaseReference.child("lectures")
+                .limitToFirst(100);
+        // [END recent_posts_query]
 
-        return myTopPostsQuery;
+        return recentPostsQuery;
     }
 }

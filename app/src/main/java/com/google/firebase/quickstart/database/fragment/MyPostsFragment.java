@@ -9,8 +9,13 @@ public class MyPostsFragment extends PostListFragment {
 
     @Override
     public Query getQuery(DatabaseReference databaseReference) {
-        // All my posts
-        return databaseReference.child("user-posts")
-                .child(getUid());
+        // [START recent_posts_query]
+        // Last 100 posts, these are automatically the 100 most recent
+        // due to sorting by push() keys
+        Query recentPostsQuery = databaseReference.child("lectures")
+                .limitToFirst(100);
+        // [END recent_posts_query]
+
+        return recentPostsQuery;
     }
 }
