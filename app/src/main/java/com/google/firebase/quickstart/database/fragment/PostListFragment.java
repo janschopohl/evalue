@@ -23,7 +23,6 @@ import com.google.firebase.database.Transaction;
 import com.google.firebase.quickstart.database.PostDetailActivity;
 import com.google.firebase.quickstart.database.R;
 import com.google.firebase.quickstart.database.models.Lecture;
-import com.google.firebase.quickstart.database.models.Post;
 import com.google.firebase.quickstart.database.viewholder.PostViewHolder;
 
 public abstract class PostListFragment extends Fragment {
@@ -92,7 +91,7 @@ public abstract class PostListFragment extends Fragment {
                     public void onClick(View v) {
                         // Launch PostDetailActivity
                         Intent intent = new Intent(getActivity(), PostDetailActivity.class);
-                        intent.putExtra(PostDetailActivity.EXTRA_POST_KEY, postKey);
+                        intent.putExtra(PostDetailActivity.EXTRA_LECTURE_KEY, postKey);
                         startActivity(intent);
                     }
                 });
