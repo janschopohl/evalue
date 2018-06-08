@@ -20,7 +20,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PostDetailActivity"></activity>
+        <activity android:name=".PostDetailActivity" />
+        <activity android:name=".CreateLecture"
+                  android:parentActivityName=".SignInActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".SignInActivity">
+            </meta-data>
+        </activity>
     </application>
 
 </manifest>
